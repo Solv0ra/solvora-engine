@@ -1,6 +1,6 @@
 # Solvora Engine
 
-[![Engine CI](https://github.com/thegreatfeez/solvora-engine/actions/workflows/ci-engine.yml/badge.svg)](https://github.com/thegreatfeez/solvora-engine/actions/workflows/ci-engine.yml)
+[![Engine CI](https://github.com/Solv0ra/solvora-engine/actions/workflows/ci-engine.yml/badge.svg)](https://github.com/Solv0ra/solvora-engine/actions/workflows/ci-engine.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
@@ -56,8 +56,8 @@ Dashboard ◄──────────────────────�
 |---|---|
 | **API base URL** | TBD (deployed with Phase 2 of the build plan) |
 | **Module registry** | `GET /modules` |
-| **Contracts** | [solvora-contracts](https://github.com/thegreatfeez/solvora-contracts) |
-| **Dashboard** | [solvora-dashboard](https://github.com/thegreatfeez/solvora-dashboard) |
+| **Contracts** | [solvora-contracts](https://github.com/Solv0ra/solvora-contracts) |
+| **Dashboard** | [solvora-dashboard](https://github.com/Solv0ra/solvora-dashboard) |
 
 ---
 
@@ -120,7 +120,7 @@ tests/            Unit + integration tests
 ### 1. Clone and install
 
 ```bash
-git clone https://github.com/thegreatfeez/solvora-engine.git
+git clone https://github.com/Solv0ra/solvora-engine.git
 cd solvora-engine
 cp .env.example .env
 npm ci

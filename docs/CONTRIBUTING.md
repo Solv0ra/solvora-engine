@@ -17,14 +17,13 @@ Read the [README](../README.md) and [Architecture](./ARCHITECTURE.md) for produc
 ## Finding work
 
 Issues are coordinated through **solvora-meta**
-([issues.md](https://github.com/thegreatfeez/solvora-meta/blob/main/issues.md),
-[issue-tracker.md](https://github.com/thegreatfeez/solvora-meta/blob/main/issue-tracker.md)).
+(issues.md and issue-tracker.md in the local solvora-meta coordination repo).
 Pick an issue labeled `engine`, claim it, and follow the workflow below.
 
 ## Development workflow
 
 ```bash
-git clone https://github.com/thegreatfeez/solvora-engine.git
+git clone https://github.com/Solv0ra/solvora-engine.git
 cd solvora-engine
 cp .env.example .env
 npm ci

@@ -7,7 +7,7 @@ when every acceptance criterion is met.
 ## Current status
 
 Working toward **v0.1.0** (below). Issues tracked in
-[solvora-meta issue-tracker](https://github.com/thegreatfeez/solvora-meta/blob/main/issue-tracker.md).
+the local solvora-meta issue tracker.
 
 ---
 

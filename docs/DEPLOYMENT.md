@@ -1,7 +1,7 @@
 # Deployment Guide
 
 This guide covers deploying Solvora Engine to Stellar testnet and wiring it to the contract
-IDs from [solvora-contracts DEPLOYMENT.md](https://github.com/thegreatfeez/solvora-contracts/blob/main/docs/DEPLOYMENT.md).
+IDs from [solvora-contracts DEPLOYMENT.md](https://github.com/Solv0ra/solvora-contracts/blob/main/docs/DEPLOYMENT.md).
 
 ## Prerequisites
 
@@ -50,7 +50,7 @@ Verify: `curl localhost:3000/health` and `curl localhost:3000/modules`.
 ## 5. Register an entity and generate a report
 
 Register the entity via the dashboard (or directly on the `entity-registry` contract — see
-[CONTRACT_API.md](https://github.com/thegreatfeez/solvora-contracts/blob/main/docs/CONTRACT_API.md)),
+[CONTRACT_API.md](https://github.com/Solv0ra/solvora-contracts/blob/main/docs/CONTRACT_API.md)),
 then:
 
 ```bash

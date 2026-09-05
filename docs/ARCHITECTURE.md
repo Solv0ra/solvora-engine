@@ -192,4 +192,4 @@ truth for entities and attestations (see contracts ARCHITECTURE §9).
 | [SETUP.md](SETUP.md) | Environment setup |
 | [DEPLOYMENT.md](DEPLOYMENT.md) | Deployment guide |
 | [SECURITY.md](SECURITY.md) | Threat model |
-| contracts [ARCHITECTURE.md](https://github.com/thegreatfeez/solvora-contracts/blob/main/docs/ARCHITECTURE.md) | On-chain storage, events, attestation semantics |
+| contracts [ARCHITECTURE.md](https://github.com/Solv0ra/solvora-contracts/blob/main/docs/ARCHITECTURE.md) | On-chain storage, events, attestation semantics |

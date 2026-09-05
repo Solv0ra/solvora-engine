@@ -27,7 +27,7 @@ nvm use 20
 ### 2. Clone and install
 
 ```bash
-git clone https://github.com/thegreatfeez/solvora-engine.git
+git clone https://github.com/Solv0ra/solvora-engine.git
 cd solvora-engine
 cp .env.example .env
 npm ci
@@ -73,4 +73,4 @@ Verify the API is up: `curl localhost:3000/health`.
 | Attestation returns 403 | The configured `ENTITY_OWNER_SECRET_KEY` must belong to the entity's `owner` |
 | Port 3000 in use | Set `PORT=3001` in `.env` |
 
-Questions? Ask in the [solvora-meta discussions](https://github.com/thegreatfeez/solvora-meta/discussions).
+Questions? Ask in the solvora-meta coordination repo.

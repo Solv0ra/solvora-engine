@@ -35,4 +35,4 @@ impact assessment. Acknowledgment within 72 hours.
 
 - [ARCHITECTURE.md](./ARCHITECTURE.md) — pipeline and trust boundaries
 - [DESIGN.md](./DESIGN.md) — design decisions incl. source-of-truth rule
-- contracts [SECURITY.md](https://github.com/thegreatfeez/solvora-contracts/blob/main/docs/SECURITY.md) — on-chain risk model
+- contracts [SECURITY.md](https://github.com/Solv0ra/solvora-contracts/blob/main/docs/SECURITY.md) — on-chain risk model
