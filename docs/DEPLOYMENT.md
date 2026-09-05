@@ -62,54 +62,54 @@ curl -s "localhost:3000/entities/1/reports?type=balance_sheet"
 Set `TESTNET_API_URL` as a GitHub repository variable; the CI workflow curls `/health` and
 `/modules` on push to `main`.
 
-## 7. Hosting — Railway or Render (testnet now)
+## 7. Hosting — free options
 
-The engine is a plain Node ESM service (`type: "module"`): it compiles with `tsc` to
-`dist/` and runs with `node dist/index.js`. Any Node host works. Both examples below wire
-up the same two commands.
+Railway has no free tier anymore. The engine is a plain Node ESM service, so these **free**
+options work:
 
-**Build command (both platforms):**
-```bash
-npm ci && npm run build
-```
+### Option A (recommended) — Vercel Hobby, same account as the dashboard
 
-**Start command (both platforms):**
-```bash
-npm start    # → node dist/index.js
-```
+No new account, no credit card. The repo ships a `api/index.ts` serverless entrypoint
+(Express app as default export) that Vercel's Node runtime compiles for you.
 
-### Railway
+1. Push `solvora-engine` to GitHub.
+2. In Vercel: **Add New → Project → Import `Solv0ra/solvora-engine`**.
+   - Framework: **Other** (Vercel detects the `api/` functions automatically; no build
+     command needed).
+3. Add environment variables (Project → Settings → Environment Variables):
+   - `SOROBAN_RPC_URL=https://soroban-testnet.stellar.org`
+   - `NETWORK_PASSPHRASE=Test SDF Network ; September 2015`
+4. Deploy. Verify `GET https://<your-app>.vercel.app/health` and `/modules`.
 
-1. Push `solvora-engine` to GitHub and create a **New Project → Deploy from GitHub repo**.
-2. Railway auto-detects Node; set the **Start Command** to `npm start` (Nixpacks detects
-   `package.json` scripts automatically — confirm the preview serves `/health`).
-3. Set variables (Settings → Variables):
+Then set the dashboard's `NEXT_PUBLIC_ENGINE_URL` to that URL and redeploy the dashboard.
 
-```env
-PORT=3000                     # Railway injects this automatically
-SOROBAN_RPC_URL=https://soroban-testnet.stellar.org
-NETWORK_PASSPHRASE=Test SDF Network ; September 2015
-ENTITY_REGISTRY_ADDRESS=
-ATTESTATION_ADDRESS=
-```
+> Free-tier caveats: serverless cold starts (~1s) and a request limit — irrelevant at
+> this scale. `/health` and `/modules` respond in ms.
 
-4. Open the generated `*.up.railway.app` URL → verify `GET /health` and `GET /modules`.
+### Option B — Render free tier
 
-### Render
+Render's free web service (no credit card, 750 hrs/month; sleeps after 15 min idle and
+cold-starts on request):
 
-1. Push to GitHub → **New + → Web Service → Import the `solvora-engine` repo**.
-2. **Runtime**: Node (20+); **Build Command**: `npm ci && npm run build`;
-   **Start Command**: `npm start`.
-3. Add the same environment variables as above (Settings → Environment).
-4. Open the `*.onrender.com` URL → verify `/health` and `/modules`.
+- New Web Service → repo `solvora-engine`
+- Build: `npm ci && npm run build` — Start: `npm start`
+- Env: same two variables as Option A
 
-### Wiring the dashboard
+### Option C — Koyeb free tier
+
+Koyeb offers a free web service tier without a credit card; same build/start commands.
+
+### Not free
+
+Railway (free tier removed), Heroku, Fly.io (requires a billing method).
+
+## 8. Wiring the dashboard
 
 Set the dashboard's `NEXT_PUBLIC_ENGINE_URL` (Vercel project env var) to the deployed
 engine URL. The dashboard then fetches `/modules` from the backend; without the variable
 it renders the built-in module defaults (see dashboard README).
 
-## 8. Production (future)
+## 9. Production (future)
 
 Postgres instead of SQLite, an archival RPC (Mercury or self-hosted node), and the API
 behind HTTPS with auth for `POST /entities/:id/attest` (Wave 2 hardening).
