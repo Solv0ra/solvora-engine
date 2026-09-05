@@ -1,0 +1,19 @@
+# Render Blueprint — Solvora Engine
+# Import: https://render.com/import → paste the Solv0ra/solvora-engine repo URL.
+# Creates a free-tier web service preconfigured with build/start commands and env vars.
+
+services:
+  - type: web
+    name: solvora-engine
+    runtime: node
+    plan: free
+    buildCommand: npm ci && npm run build
+    startCommand: npm start
+    envVars:
+      - key: SOROBAN_RPC_URL
+        value: https://soroban-testnet.stellar.org
+        sync: false
+      - key: NETWORK_PASSPHRASE
+        value: Test SDF Network ; September 2015
+        sync: false
+healthCheckPath: /health
