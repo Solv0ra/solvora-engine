@@ -2,7 +2,7 @@
 // The dashboard renders exactly what this returns — "coming_soon" modules get a designed
 // locked card, never a dead route. Adding a module is a config change plus new routes.
 
-import type { ModuleInfo } from "../types";
+import type { ModuleInfo } from "../types/index.js";
 
 export const MODULE_REGISTRY: ModuleInfo[] = [
   {

@@ -5,7 +5,7 @@
 import express from "express";
 import cors from "cors";
 import { pinoHttp } from "pino-http";
-import { getModuleRegistry } from "./api/moduleRegistry";
+import { getModuleRegistry } from "./api/moduleRegistry.js";
 
 export function createApp() {
   const app = express();

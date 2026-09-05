@@ -2,8 +2,8 @@
 // treasury or multisig address set. Implementation lands with the first engine wave
 // (solvora-meta/issues.md → engine group).
 
-import { NotImplementedError } from "./index";
-import type { AccountingEntry, SorobanEvent } from "../types";
+import { NotImplementedError } from "./index.js";
+import type { AccountingEntry, SorobanEvent } from "../types/index.js";
 
 export class GenericTreasuryAdapter {
   parseEvent(_rawEvent: SorobanEvent): AccountingEntry[] {

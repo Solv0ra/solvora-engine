@@ -62,7 +62,54 @@ curl -s "localhost:3000/entities/1/reports?type=balance_sheet"
 Set `TESTNET_API_URL` as a GitHub repository variable; the CI workflow curls `/health` and
 `/modules` on push to `main`.
 
-## 7. Production (future)
+## 7. Hosting — Railway or Render (testnet now)
+
+The engine is a plain Node ESM service (`type: "module"`): it compiles with `tsc` to
+`dist/` and runs with `node dist/index.js`. Any Node host works. Both examples below wire
+up the same two commands.
+
+**Build command (both platforms):**
+```bash
+npm ci && npm run build
+```
+
+**Start command (both platforms):**
+```bash
+npm start    # → node dist/index.js
+```
+
+### Railway
+
+1. Push `solvora-engine` to GitHub and create a **New Project → Deploy from GitHub repo**.
+2. Railway auto-detects Node; set the **Start Command** to `npm start` (Nixpacks detects
+   `package.json` scripts automatically — confirm the preview serves `/health`).
+3. Set variables (Settings → Variables):
+
+```env
+PORT=3000                     # Railway injects this automatically
+SOROBAN_RPC_URL=https://soroban-testnet.stellar.org
+NETWORK_PASSPHRASE=Test SDF Network ; September 2015
+ENTITY_REGISTRY_ADDRESS=
+ATTESTATION_ADDRESS=
+```
+
+4. Open the generated `*.up.railway.app` URL → verify `GET /health` and `GET /modules`.
+
+### Render
+
+1. Push to GitHub → **New + → Web Service → Import the `solvora-engine` repo**.
+2. **Runtime**: Node (20+); **Build Command**: `npm ci && npm run build`;
+   **Start Command**: `npm start`.
+3. Add the same environment variables as above (Settings → Environment).
+4. Open the `*.onrender.com` URL → verify `/health` and `/modules`.
+
+### Wiring the dashboard
+
+Set the dashboard's `NEXT_PUBLIC_ENGINE_URL` (Vercel project env var) to the deployed
+engine URL. The dashboard then fetches `/modules` from the backend; without the variable
+it renders the built-in module defaults (see dashboard README).
+
+## 8. Production (future)
 
 Postgres instead of SQLite, an archival RPC (Mercury or self-hosted node), and the API
 behind HTTPS with auth for `POST /entities/:id/attest` (Wave 2 hardening).

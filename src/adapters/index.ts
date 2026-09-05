@@ -1,7 +1,7 @@
 // Adapter framework — the extensibility core of Solvora Engine.
 // Each EntityType maps to an adapter that turns raw Soroban events into accounting entries.
 
-import type { AccountingEntry, EntityType, SorobanEvent } from "../types";
+import type { AccountingEntry, EntityType, SorobanEvent } from "../types/index.js";
 
 export interface LedgerAdapter {
   entityType: EntityType;
