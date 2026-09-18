@@ -21,7 +21,7 @@ export const MODULE_REGISTRY: ModuleInfo[] = [
     id: "proof-of-reserve",
     name: "Proof of Reserve",
     status: "coming_soon",
-    description: "Public attestation dashboard for BTC-backed and wrapped assets on Stellar.",
+    description: "Public attestation dashboard for BTC-backed and wrapped assets on Ethereum.",
   },
 ];
 
